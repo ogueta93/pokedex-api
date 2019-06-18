@@ -33,6 +33,7 @@ class PokeApiService extends AbstractService
                     'images' => $data->sprites ?? null
                 ];
             } catch (\Throwable $th) {
+                break;
             }
         }
 

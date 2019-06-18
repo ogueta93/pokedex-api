@@ -20,8 +20,8 @@ class PokeApiService extends WebTestCase
 
     public function testWithPageNumberValue()
     {
-        $value = 5;
-
+        $value = 17;
+        
         $client = static::createClient();
         $client->request('GET', '/' . $value);
 
@@ -29,6 +29,6 @@ class PokeApiService extends WebTestCase
         $this->assertInternalType('string', $client->getResponse()->getContent());
 
         $decodedData = \json_decode($client->getResponse()->getContent());
-        $this->assertEquals(50, (int) $decodedData->count);
+        $this->assertLessThanOrEqual(50, (int) $decodedData->count);
     }
 }
