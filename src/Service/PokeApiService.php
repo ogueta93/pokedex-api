@@ -29,6 +29,8 @@ class PokeApiService extends AbstractService
                 $result[] = [
                     'id' => $data->id ?? null,
                     'name' => $data->name ?? null,
+                    'height' => $data->height ?? null,
+                    'weight' => $data->weight ?? null,
                     'types' => $data->types ?? null,
                     'images' => $data->sprites ?? null
                 ];
