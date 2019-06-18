@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 use App\Service\PokeApiService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class PokedexController extends Controller
+class PokedexController extends AbstractController
 {
     /**
      * Returns 50 elements and support a pageNumber parametre
@@ -14,11 +15,8 @@ class PokedexController extends Controller
      * @param int $pageNumber
      * @return Json
      */
-    public function getData($pageNumber)
+    public function getData($pageNumber, PokeApiService $pokeApiService)
     {
-
-        $pokeApiService = $this->container->get(PokeApiService::class);
-
         return new JsonResponse(
             $pokeApiService->search($pageNumber)
         );
