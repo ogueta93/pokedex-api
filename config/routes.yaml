@@ -1,0 +1,8 @@
+game_battle_data:
+    path: /{pageNumber}
+    controller: App\Controller\PokedexController::getData
+    methods: [GET]
+    defaults:
+        pageNumber: 1
+    requirements:
+        pageNumber: '\d+'
